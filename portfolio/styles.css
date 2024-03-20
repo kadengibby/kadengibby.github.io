@@ -1,0 +1,289 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Ariel', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Image section styles */
+.profile-image {
+    max-width: 30%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Adjust spacing between image and text */
+    float: left; /* Align the image to the left */
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    position: absolute;
+    top: 10px; /* Adjust the distance from the top */
+    right: 20px; /* Adjust the distance from the right */
+}
+
+header nav ul li {
+    margin-left: 20px; /* Adjust the spacing between items */
+}
+
+header nav ul li:first-child {
+    margin-left: 0; /* Remove margin for the first item */
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Hero section styles */
+#hero {
+    background: linear-gradient(to bottom, #333, #666);
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    position: relative; /* Add this line */
+}
+
+#hero .container {
+    position: relative; /* Add this line */
+}
+
+#hero img.profile-image {
+    max-width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: -100px; /* Adjust spacing between image and text */
+    display: block; /* Add this line */
+    margin-right: 20px; /* Add this line */
+    margin-top: -100px;
+}
+
+#hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -30%; /* Position the text vertically in the middle */
+    left: 15%; /* Position the text horizontally 15% from the left */
+    transform: translate(-50%, -50%); /* Center the text precisely */
+}
+
+@media screen and (max-width: 1007px) {
+    #hero h2 {
+        left: 30%; /* Position the text horizontally in the center */
+        
+        transform: translateY(90%);
+    }
+    #hero p {
+        left: 50%; /* Position the text horizontally in the center */
+        transform: translateX(-20%); /* Center the text precisely horizontally */
+    }
+}
+#hero p {
+    margin-right: 20%;
+    font-size: 1.7em;
+}
+
+/* Main content section styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    display: flex; /* Display the sections in a row */
+    justify-content: space-between; /* Align the sections with space between them */
+}
+
+.container > div {
+    width: calc(50% - 10px); /* Set the width of each section */
+    margin-left: 20px;
+}
+
+.container h2 {
+    font-size: 2.5em;
+    margin-left: 20px;
+}
+
+.container p {
+    font-size: 1.2em;
+    margin-left: 100px;
+}
+
+/* Project section styles */
+.project {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 1.1em;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    header nav ul {
+        margin-top: 10px;
+    }
+
+    header nav ul li {
+        margin-right: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #hero h2 {
+        font-size: 2em;
+    }
+
+    #hero p {
+        font-size: 1em;
+        left: 30%;
+        margin-right: -80%;
+        font-size: 1.7em;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container > div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    header nav ul {
+        margin-top: 10px;
+    }
+
+    header nav ul li {
+        margin-right: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #hero h2 {
+        font-size: 2em;
+    }
+
+    #hero p {
+        font-size: 1em;
+        left: 30%;
+        margin-right: -80%;
+        font-size: 1.2em;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container > div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 595px) {
+    header nav ul {
+        margin-top: 10px;
+    }
+
+    header nav ul li {
+        margin-right: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #hero h2 {
+        font-size: 2em;
+    }
+
+    #hero p {
+        font-size: 1em;
+        left: 30%;
+        margin-right: -80%;
+        font-size: 1.2em;
+        position: absolute;
+
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container > div {
+        width: 100%;
+    }
+}
