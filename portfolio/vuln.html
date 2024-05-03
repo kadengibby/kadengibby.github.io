@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Vulnerability Scanner</title>
+    <link rel="stylesheet" href="vuln.css">
+    <script>
+        function scanWebsite() {
+            var url = document.getElementById('url').value;
+            var report = document.getElementById('report');
+
+            if (!url) {
+                alert("Please enter a URL");
+                return;
+            }
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(data, 'text/html');
+
+                    // Potential XSS vulnerability
+                    var scriptTags = doc.getElementsByTagName('script');
+                    if (scriptTags.length > 0) {
+                        report.innerText += 'Potential XSS vulnerability found on ' + url + ':\n';
+                        for (var i = 0; i < scriptTags.length; i++) {
+                            report.innerText += 'Script tag found: ' + scriptTags[i].outerHTML + '\n';
+                        }
+                    }
+
+                    // SQL injection vulnerability
+                    var queryParameters = new URL(url).searchParams;
+                    if (queryParameters.has('sql')) {
+                        report.innerText += 'Potential SQL injection vulnerability found on ' + url + ':\n';
+                        report.innerText += 'SQL parameter found in URL: ' + queryParameters.get('sql') + '\n';
+                    }
+
+                    // Insecure HTTP headers?
+                    var headers = new Headers();
+                    fetch(url, { method: 'HEAD' })
+                        .then(response => {
+                            response.headers.forEach((value, name) => {
+                                headers.append(name, value);
+                            });
+                            if (headers.get('Server').toLowerCase().includes('apache')) {
+                                report.innerText += 'Insecure server header found on ' + url + ':\n';
+                                report.innerText += 'Server header value: ' + headers.get('Server') + '\n';
+                            }
+                        });
+
+                    alert("Website scan completed successfully");
+                })
+                .catch(error => {
+                    alert("An error occurred: " + error);
+                });
+        }
+
+        function clearReport() {
+            document.getElementById('report').innerText = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>Website Vulnerability Scanner</h1>
+    <label for="url">Enter URL:</label>
+    <input type="text" id="url">
+    <button onclick="scanWebsite()">Scan Website</button>
+    <button onclick="clearReport()">Clear Report</button>
+    <br><br>
+    <textarea id="report" rows="10" cols="50" readonly></textarea>
+</body>
+</html>
