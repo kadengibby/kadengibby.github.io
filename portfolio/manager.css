@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+    margin: 20px auto 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#passwordList {
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+#passwordList p {
+    margin: 5px 0;
+}
+
+#passwordList p:first-child {
+    font-weight: bold;
+}
+
+#passwordList p:nth-child(even) {
+    background-color: #f2f2f2;
+}
