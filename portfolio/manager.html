@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+    <h1>Password Manager</h1>
+    <label for="website">Website:</label>
+    <input type="text" id="website"><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username"><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password"><br>
+    <button onclick="addPassword()">Add Password</button>
+    <button onclick="getPassword()">Get Password</button>
+    <button onclick="displayPasswords()">Display All Passwords</button><br><br>
+    <table id="passwords" style="display: none;">
+        <thead>
+            <tr>
+                <th>Website</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody id="passwordsBody">
+        </tbody>
+    </table>
+
+    <script>
+        function addPassword() {
+            var website = document.getElementById('website').value.trim();
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+
+            if (!website || !password) {
+                alert("Please fill in both website and password fields.");
+                return;
+            }
+
+            // Add the password to the table
+            var passwordsTable = document.getElementById('passwordsBody');
+            var newRow = passwordsTable.insertRow();
+            newRow.insertCell().innerText = website;
+            newRow.insertCell().innerText = username;
+            newRow.insertCell().innerText = password;
+
+            // Clear the input fields after adding the password
+            document.getElementById('website').value = "";
+            document.getElementById('username').value = "";
+            document.getElementById('password').value = "";
+
+            alert("Password added successfully.");
+        }
+
+        function getPassword() {
+    var website = document.getElementById('website').value.trim();
+    var username = document.getElementById('username').value.trim();
+    if (!website || !username) {
+        alert("Please enter both the website and username.");
+        return;
+    }
+
+    // Search for the password in the table
+    var passwordsTable = document.getElementById('passwords');
+    var rows = passwordsTable.getElementsByTagName('tr');
+    for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName('td');
+        if (cells[0].innerText === website && cells[1].innerText === username) {
+            alert("Password retrieved:\nWebsite: " + cells[0].innerText + "\nUsername: " + cells[1].innerText + "\nPassword: " + cells[2].innerText);
+            return;
+        }
+    }
+
+    alert("Password not found for the specified website and username.");
+}
+
+        function displayPasswords() {
+            // Display all passwords
+            var passwordsTable = document.getElementById('passwords');
+            passwordsTable.style.display = 'table';
+            alert("This is not a recommended practice. This is for demonstration purposes only.");
+        }
+    </script>
+</body>
+</html>
+
