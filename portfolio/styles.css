@@ -1,0 +1,240 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 3em;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+/* About Section styles */
+#about .container {
+    text-align: justify;
+    position: relative; 
+}
+
+#about hr {
+    margin: 20px 0; 
+    border: none;
+    border-top: 1px solid #ccc;
+    position: relative; 
+}
+
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+/* About Section styles */
+#about .container {
+    text-align: justify;
+}
+
+
+
+
+
+
+
+
+header nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Hero Section styles */
+#hero {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+#hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero img.profile-image {
+    max-width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.7em;
+    margin-bottom: 20px;
+}
+
+/* Main content section styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.container h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 1.2em;
+    margin-right: 20px;
+    text-align: justify;
+}
+
+/* Projects Section styles */
+#projects .project {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#projects .project:hover {
+    transform: translateY(-5px);
+}
+
+#projects .project h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#projects .project p {
+    font-size: 1.1em;
+}
+
+/* Contact Section styles */
+#contact .container {
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Adjustments for smaller screens like iPhones */
+@media screen and (max-width: 518px) {
+    /* Make sections display vertically */
+    header .container nav ul {
+        display: block;
+    }
+
+    #about .container {
+        display: block;
+    }
+
+    #projects .container {
+        display: block;
+    }
+
+    #contact .container {
+        display: block;
+    }
+}
+
+/* Adjustments for smaller screens like iPhones */
+@media screen and (max-width: 518px) {
+    /* Make sections display vertically */
+    header .container nav ul {
+        display: block;
+        text-align: center; /* Center the list items */
+    }
+
+    header .container nav ul li {
+        display: block;
+        margin: 10px 0; /* Add some vertical spacing between links */
+    }
+}
+
+/* Adjustments for smaller screens like iPhones */
+@media screen and (max-width: 560px) {
+    /* Make sections display horizontally */
+    #about .container {
+        display: flex;
+        flex-direction: column; /* Display vertically by default */
+    }
+
+    #about hr {
+        margin: 20px auto; /* Center the horizontal line */
+    }
+
+    #about .left-image,
+    #about .right-image {
+        position: static; /* Remove absolute positioning */
+        margin: 0 auto 20px; /* Center the images and add some space */
+        width: 100%; /* Make images fill the container */
+    }
+
+    #projects .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow projects to wrap to the next line */
+    }
+
+    #projects .project {
+        width: 100%; /* Make projects take full width */
+    }
+
+    #about p {
+        margin: 10px 0; /* Add some vertical spacing */
+        white-space: normal; /* Ensure normal word wrapping */
+        word-break: break-word; /* Break long words */
+        text-align: left; /* Align text to the left */
+    }
+}
