@@ -87,6 +87,25 @@ header nav ul li a:hover {
     color: #fff;
     text-align: center;
     padding: 100px 0;
+    position: relative; /* Add position relative to allow absolute positioning of the link */
+
+}
+
+#hero a.resume-link {
+    position: absolute; /* Position the link absolutely */
+    bottom: 20px; /* Adjust vertical position from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust horizontal position to center */
+    color: #fff; /* Link color */
+    font-size: 1.2em; /* Font size */
+    text-decoration: none; /* Remove underline */
+    background-color: #007bff; /* Background color */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Border radius */
+}
+
+#hero a.resume-link:hover {
+    background-color: #0056b3; /* Hover background color */
 }
 
 #hero .container {
